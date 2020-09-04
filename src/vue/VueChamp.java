@@ -24,12 +24,12 @@ public class VueChamp extends Vue {
 		super.activerControles();
 	}
 	
-	public void afficherChamp(modele.Champ collection)
+	public void afficherChamp(modele.Champ champ)
 	{
-		TextArea affichageDescription = (TextArea)lookup("#collection-description");
-		affichageDescription.setText(collection.getDescription());
+		TextArea affichageDistanceFerme = (TextArea)lookup("#champ-distanceferme");
+		affichageDistanceFerme.setText(champ.getDistanceFerme());
 
 		Label affichageTitre = (Label)lookup("#titre-page");
-		affichageTitre.setText("CHAMP " + collection.getNom());
+		affichageTitre.setText("CHAMP " + champ.getNom());
 	}
 }

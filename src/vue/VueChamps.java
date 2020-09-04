@@ -30,15 +30,15 @@ public class VueChamps extends Vue {
 		super.activerControles();
 	}
 	
-	public void afficherChamps(List<modele.Champ> collections)
+	public void afficherChamps(List<modele.Champ> champs)
 	{
 		int position = 1;
-		for(modele.Champ collection : collections)
+		for(modele.Champ champ : champs)
 		{
 			Button libelle = (Button)lookup("#categorie-" + position);
-			System.out.println(collection.getNom());
-			libelle.setText(collection.getNom());
-			libelle.setId(collection.getId()+""); // l'id est changé mais on n'a plus besoin de recuperer l'objet
+			System.out.println(champ.getNom());
+			libelle.setText(champ.getNom());
+			libelle.setId(champ.getId()+""); // l'id est changé mais on n'a plus besoin de recuperer l'objet
 			
 			libelle.setOnAction(new EventHandler<ActionEvent>() 
 			{

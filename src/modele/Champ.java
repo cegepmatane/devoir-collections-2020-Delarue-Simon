@@ -4,13 +4,13 @@ public class Champ {
 	
 	protected int id;
 	protected String nom;
-	protected String description;
+	protected String distanceFerme;
 	
-	public String getDescription() {
-		return description;
+	public String getDistanceFerme() {
+		return distanceFerme;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDistanceFerme(String distanceFerme) {
+		this.distanceFerme = distanceFerme;
 	}
 	public int getId() {
 		return id;

@@ -78,7 +78,7 @@
                                           <Image url="@decoration/cadres/coin-bas-droit.png" />
                                        </image>
                                     </ImageView>
-                              <TextArea id="collection-description" layoutX="70.0" layoutY="8.0" prefHeight="143.0" prefWidth="913.0" />
+                              <TextArea id="champ-distanceferme" layoutX="70.0" layoutY="8.0" prefHeight="143.0" prefWidth="913.0" />
                                  </children>
                               </Pane>
 

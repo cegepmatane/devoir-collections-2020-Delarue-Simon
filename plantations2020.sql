@@ -82,11 +82,12 @@ ALTER SEQUENCE public.collection_id_seq OWNED BY public.champ.id;
 --
 
 CREATE TABLE public.semences (
-    id integer,
+    id integer NOT NULL,
     typesemence text,
     taille integer,
     fertilitesol text,
-    quandrecolter text
+    dateplantation text,
+    champ_id integer
 );
 
 
@@ -106,18 +107,30 @@ ALTER TABLE ONLY public.champ ALTER COLUMN id SET DEFAULT nextval('public.collec
 INSERT INTO public.champ VALUES (1, 'Champ no 1', '1,3km');
 INSERT INTO public.champ VALUES (2, 'Champ no 2', '1,7km');
 INSERT INTO public.champ VALUES (3, 'Champ no 3', '400m');
-INSERT INTO public.champ VALUES (5, 'Champ no 4', '6,3km');
-INSERT INTO public.champ VALUES (6, 'Champ no 5
+INSERT INTO public.champ VALUES (4, 'Champ no 4', '6,3km');
+INSERT INTO public.champ VALUES (5, 'Champ no 5
 ', '3,2km');
-INSERT INTO public.champ VALUES (7, 'Champ no 6', '1,1km');
-INSERT INTO public.champ VALUES (9, 'Champ no 7', '2,3km');
-INSERT INTO public.champ VALUES (10, 'Champ no 8', '3,5km');
+INSERT INTO public.champ VALUES (6, 'Champ no 6', '1,1km');
+INSERT INTO public.champ VALUES (7, 'Champ no 7', '2,3km');
+INSERT INTO public.champ VALUES (8, 'Champ no 8', '3,5km');
 
 
 --
 -- Data for Name: semences; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.semences VALUES (1, 'pommes de terre', 500, 'très fertile', '23/07/2020', 1);
+INSERT INTO public.semences VALUES (2, 'radis', 275, 'très fertile', '12/01/2020', 1);
+INSERT INTO public.semences VALUES (4, 'betteraves', 273, 'très fertile', '19/03/2020', 1);
+INSERT INTO public.semences VALUES (3, 'maïs', 927, 'fertile', '13/05/2020', 2);
+INSERT INTO public.semences VALUES (5, 'blé', 1132, 'fertile', '23/03/2020', 5);
+INSERT INTO public.semences VALUES (6, 'foin', 5240, 'peu fertile', '17/08/2020', 3);
+INSERT INTO public.semences VALUES (7, 'blé', 1235, 'fertile', '18/07/2020', 4);
+INSERT INTO public.semences VALUES (8, 'orge', 650, 'fertile', '22/07/2020', 4);
+INSERT INTO public.semences VALUES (9, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.semences VALUES (10, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.semences VALUES (11, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO public.semences VALUES (12, NULL, NULL, NULL, NULL, NULL);
 
 
 --
@@ -133,6 +146,22 @@ SELECT pg_catalog.setval('public.collection_id_seq', 12, true);
 
 ALTER TABLE ONLY public.champ
     ADD CONSTRAINT collection_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: semences semences_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.semences
+    ADD CONSTRAINT semences_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: semences champ_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.semences
+    ADD CONSTRAINT champ_id FOREIGN KEY (champ_id) REFERENCES public.champ(id) NOT VALID;
 
 
 --

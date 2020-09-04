@@ -56,7 +56,7 @@ public class ChampDAO {
 				String description = curseurChamp.getString("description");
 				champ.setId(id);
 				champ.setNom(nom);
-				champ.setDescription(description);
+				champ.setDistanceFerme(description);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
