@@ -9,10 +9,13 @@ import controleur.ControleurChamp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import modele.Semence;
 
 public class VueChamp extends Vue {
@@ -50,18 +53,22 @@ public class VueChamp extends Vue {
 	public void afficherSemences(List<Semence> listeSemences) //TODO : trouver une façon d'afficher chaque semences séparément et de pouvoir les modifier
 	{
 		
-		TextArea textArea = new TextArea();
-		//textArea.setLayoutX(300);
-		//textArea.setLayoutY(300);
-		ListView affichageListeSemences = (ListView)lookup("#liste-semences");
-		ArrayList<String> listeNomSemences= new ArrayList<String>();
-		
+		Logger.logMsg(Logger.INFO, "VueChamp.afficherSemences()");
+		/*ListView affichageListeSemences = (ListView)lookup("#liste-semences"); ancien code pour afficher dans un ListView
+		ArrayList<String> listeNomSemences= new ArrayList<String>(); */
+		VBox vueSemences = (VBox)lookup("#listesemences");
+		vueSemences.getChildren().clear();
 		for (Semence semence: listeSemences) {
-			
-			listeNomSemences.add(semence.getTypeSemence());
+			Logger.logMsg(Logger.INFO, "Semence : "+ semence.getTypeSemence());
+			HBox vueSemence = new HBox();
+			vueSemence.getStyleClass().add("semence");
+			vueSemence.getChildren().add(new Label(semence.getTypeSemence()));
+			vueSemence.getChildren().add(new Button("Modifier"));
+			vueSemences.getChildren().add(vueSemence);
+			//listeNomSemences.add(semence.getTypeSemence());
 		}
 		
-		affichageListeSemences.setItems(FXCollections.observableArrayList(listeNomSemences));
+		//affichageListeSemences.setItems(FXCollections.observableArrayList(listeNomSemences));
 		
 		
 	}

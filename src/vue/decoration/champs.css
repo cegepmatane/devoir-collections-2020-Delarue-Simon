@@ -65,7 +65,23 @@ https://commons.wikimedia.org/wiki/File:Corner_Ornament_Black_Down_Right.svg
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, white, #fcd2dd);
     -fx-border-color:#f6f797;    
 }
-
+.semence
+{
+    -fx-background-color : lightgrey;
+    -fx-min-height : 25px;
+    -fx-min-width : 533px;
+    -fx-background-radius : 30px;
+    -fx-padding:2em;
+    -fx-alignment: center;
+    
+    //-fx-spacing:200.0;
+    
+}
+#semence .Button
+{
+    -fx-alignment: center-right;
+    
+}
 Pane.champ
 {
     -fx-background-radius: 20px;
