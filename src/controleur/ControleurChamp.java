@@ -8,5 +8,7 @@ public class ControleurChamp extends Controleur{
 	{
 		Logger.logMsg(Logger.INFO, "new ControleurChamp()");
 	}
-
+	public void listerSemences() {
+		
+	}
 }

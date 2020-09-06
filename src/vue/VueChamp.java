@@ -7,6 +7,7 @@ import com.sun.media.jfxmedia.logging.Logger;
 
 import controleur.ControleurChamp;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -48,15 +49,20 @@ public class VueChamp extends Vue {
 	}
 	public void afficherSemences(List<Semence> listeSemences) //TODO : trouver une façon d'afficher chaque semences séparément et de pouvoir les modifier
 	{
-		/*for (Semence s: listeSemences) {
-			
-		}
-		listeSemences.get(1).getTypeSemence()*/
+		
 		TextArea textArea = new TextArea();
 		//textArea.setLayoutX(300);
 		//textArea.setLayoutY(300);
 		ListView affichageListeSemences = (ListView)lookup("#liste-semences");
-		affichageListeSemences.setItems(FXCollections.observableArrayList(listeSemences));
+		ArrayList<String> listeNomSemences= new ArrayList<String>();
+		
+		for (Semence semence: listeSemences) {
+			
+			listeNomSemences.add(semence.getTypeSemence());
+		}
+		
+		affichageListeSemences.setItems(FXCollections.observableArrayList(listeNomSemences));
+		listeSemences.get(1).getTypeSemence();
 		
 		
 	}
