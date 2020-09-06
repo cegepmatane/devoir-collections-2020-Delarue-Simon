@@ -26,10 +26,12 @@ public class VueChamp extends Vue {
 	
 	public void afficherChamp(modele.Champ champ)
 	{
-		TextArea affichageDistanceFerme = (TextArea)lookup("#champ-distanceferme");
+		TextArea affichageDistanceFerme = (TextArea)lookup("#distance-ferme");
 		affichageDistanceFerme.setText(champ.getDistanceFerme());
 
 		Label affichageTitre = (Label)lookup("#titre-page");
 		affichageTitre.setText("CHAMP " + champ.getNom());
+		
+		
 	}
 }

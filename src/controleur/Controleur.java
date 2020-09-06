@@ -11,8 +11,8 @@ public class Controleur {
 
 	public static Vue selectionnerVuePrincipale()
 	{
-		ChampDAO collectionDAO = new ChampDAO();
-		VueChamps.getInstance().afficherChamps(collectionDAO.listerChamps());
+		ChampDAO champDAO = new ChampDAO();
+		VueChamps.getInstance().afficherChamps(champDAO.listerChamps());
 		return VueChamps.getInstance();
 	}
 		

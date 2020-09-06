@@ -16,8 +16,9 @@ public class ControleurChamps extends Controleur{
 	// RECEPTION des EVENEMENTS
 	public void actionOuvrirChamp(int numero)
 	{
-		ChampDAO collectionDAO = new ChampDAO();
-		VueChamp.getInstance().afficherChamp(collectionDAO.detaillerChamp(numero));
+		ChampDAO champDAO = new ChampDAO();
+		VueChamp.getInstance().afficherChamp(champDAO.detaillerChamp(numero));
+		
 		Navigateur.getInstance().afficherVue(VueChamp.getInstance());
 	}
 

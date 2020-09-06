@@ -27,9 +27,11 @@ public class ChampDAO {
 			{
 				int id = curseurListeChamps.getInt("id");
 				String nom = curseurListeChamps.getString("nom");
+				String distanceFerme = curseurListeChamps.getString("distanceferme");
 				Champ champs = new Champ();
 				champs.setId(id);
 				champs.setNom(nom);
+				champs.setDistanceFerme(distanceFerme);
 				listeChamps.add(champs);
 			}
 		} catch (SQLException e) {
@@ -53,10 +55,10 @@ public class ChampDAO {
 				curseurChamp.next();
 				int id = curseurChamp.getInt("id");
 				String nom = curseurChamp.getString("nom");
-				String description = curseurChamp.getString("description");
+				String distanceFerme = curseurChamp.getString("distanceferme");
 				champ.setId(id);
 				champ.setNom(nom);
-				champ.setDistanceFerme(description);
+				champ.setDistanceFerme(distanceFerme);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
