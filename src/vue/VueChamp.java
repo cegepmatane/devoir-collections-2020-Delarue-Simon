@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Region;
 import modele.Semence;
 
 public class VueChamp extends Vue {
@@ -51,6 +52,9 @@ public class VueChamp extends Vue {
 			
 		}
 		listeSemences.get(1).getTypeSemence()*/
+		TextArea textArea = new TextArea();
+		//textArea.setLayoutX(300);
+		//textArea.setLayoutY(300);
 		ListView affichageListeSemences = (ListView)lookup("#liste-semences");
 		affichageListeSemences.setItems(FXCollections.observableArrayList(listeSemences));
 		
