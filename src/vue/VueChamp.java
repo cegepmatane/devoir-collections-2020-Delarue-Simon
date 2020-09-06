@@ -62,7 +62,6 @@ public class VueChamp extends Vue {
 		}
 		
 		affichageListeSemences.setItems(FXCollections.observableArrayList(listeNomSemences));
-		listeSemences.get(1).getTypeSemence();
 		
 		
 	}
