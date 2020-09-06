@@ -60,13 +60,13 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </FlowPane.margin>
                            <children>
-                              <ListView id="champ-semences" layoutX="-9.0" layoutY="-57.0" prefHeight="463.0" prefWidth="427.0" />
+                              <ListView id="liste-semences" layoutX="-7.0" layoutY="26.0" prefHeight="463.0" prefWidth="427.0" />
                            </children>
                               </Pane>
 
                            </children>
                         </FlowPane>
-                  <TextArea id="distance-ferme" prefHeight="37.0" prefWidth="65.0" />
+                  <TextArea id="description-champ" prefHeight="120.0" prefWidth="533.0" />
                      </children>
                   </AnchorPane>
             <FlowPane id="resume-des-collections" hgap="10.0" layoutX="152.0" layoutY="481.0" prefHeight="130.0" prefWidth="1085.0" vgap="10.0">
@@ -74,7 +74,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </FlowPane>
-            <Text layoutX="151.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Distance entre le champ et la ferme" wrappingWidth="225.67578125" />
+            <Text layoutX="151.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description du champ" wrappingWidth="225.67578125" />
          </children>
       </AnchorPane>
       <Pane id="entete" layoutX="-3.0" prefHeight="92.0" prefWidth="1171.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

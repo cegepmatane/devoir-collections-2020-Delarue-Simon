@@ -1,10 +1,17 @@
 package vue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.sun.media.jfxmedia.logging.Logger;
 
 import controleur.ControleurChamp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import modele.Semence;
 
 public class VueChamp extends Vue {
 
@@ -26,11 +33,26 @@ public class VueChamp extends Vue {
 	
 	public void afficherChamp(modele.Champ champ)
 	{
-		TextArea affichageDistanceFerme = (TextArea)lookup("#distance-ferme");
-		affichageDistanceFerme.setText(champ.getDistanceFerme());
+		TextArea affichageDescriptionChamp = (TextArea)lookup("#description-champ");
+		String description;
+		description = "Distance entre la ferme et le champ : "+champ.getDistanceFerme()+"\n";
+		description += "Fertilité du sol : "+champ.getFertiliteSol()+"\n";
+		description += "Taille du champ : "+champ.getTaille()+" m²";
+		affichageDescriptionChamp.setText(description);
 
 		Label affichageTitre = (Label)lookup("#titre-page");
 		affichageTitre.setText("CHAMP " + champ.getNom());
+		
+		
+	}
+	public void afficherSemences(List<Semence> listeSemences) //TODO : trouver une façon d'afficher chaque semences séparément et de pouvoir les modifier
+	{
+		/*for (Semence s: listeSemences) {
+			
+		}
+		listeSemences.get(1).getTypeSemence()*/
+		ListView affichageListeSemences = (ListView)lookup("#liste-semences");
+		affichageListeSemences.setItems(FXCollections.observableArrayList(listeSemences));
 		
 		
 	}

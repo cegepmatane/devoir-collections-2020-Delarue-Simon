@@ -10,27 +10,15 @@ import java.util.List;
 import modele.Semence;
 
 public class SemenceDAO {
-	public String recupChampID() {
-		String champID;
-		
-		
-		
-		return champID;
-	}
 	
-	
-	
-	
-	
-	
-	public List<Semence> listerSemences(int numero) //TODO : trouver une façon de faire passer l'id du champ ici
+	public List<Semence> listerSemences(int numero)
 	{
 		Connection connection = BaseDeDonnees.getInstance().getConnection();
 		
 		List<Semence> listeSemences =  new ArrayList<Semence>();			
 		PreparedStatement requeteSemences;
 		try {
-			requeteSemences = connection.prepareStatement("SELECT * from semences WHERE id = ?");
+			requeteSemences = connection.prepareStatement("SELECT * from semences WHERE champ_id = ?");
 			requeteSemences.setInt(1, numero);
 			ResultSet curseurListeSemences = requeteSemences.executeQuery();
 			
@@ -38,14 +26,10 @@ public class SemenceDAO {
 			{
 				int id = curseurListeSemences.getInt("id");
 				String typeSemence = curseurListeSemences.getString("typesemence");
-				int taille = curseurListeSemences.getInt("taille");
-				String fertiliteSol = curseurListeSemences.getString("fertilitesol");
 				String datePlantation = curseurListeSemences.getString("dateplantation");
 				Semence semence = new Semence();
 				semence.setId(id);
-				semence.setTaille(taille);
 				semence.setTypeSemence(typeSemence);
-				semence.setFertiliteSol(fertiliteSol);
 				semence.setDatePlantation(datePlantation);
 				listeSemences.add(semence);
 			}

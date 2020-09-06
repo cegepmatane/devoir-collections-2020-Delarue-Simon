@@ -4,8 +4,6 @@ public class Semence {
 	
 	protected int id;
 	protected String typeSemence;
-	protected int taille;
-	protected String fertiliteSol;
 	protected String datePlantation;
 	protected int champ_id;
 	
@@ -23,19 +21,6 @@ public class Semence {
 		this.typeSemence = typeSemence;
 	}
 	
-	public int getTaille() {
-		return taille;
-	}
-	public void setTaille(int taille) {
-		this.taille = taille;
-	}
-	
-	public String getFertiliteSol() {
-		return fertiliteSol;
-	}
-	public void setFertiliteSol(String fertiliteSol) {
-		this.fertiliteSol = fertiliteSol;
-	}
 	
 	public String getDatePlantation() {
 		return datePlantation;

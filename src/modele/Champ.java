@@ -5,6 +5,8 @@ public class Champ {
 	protected int id;
 	protected String nom;
 	protected String distanceFerme;
+	protected int taille;
+	protected String fertiliteSol;
 	
 	public String getDistanceFerme() {
 		return distanceFerme;
@@ -23,6 +25,20 @@ public class Champ {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public int getTaille() {
+		return taille;
+	}
+	public void setTaille(int taille) {
+		this.taille = taille;
+	}
+	
+	public String getFertiliteSol() {
+		return fertiliteSol;
+	}
+	public void setFertiliteSol(String fertiliteSol) {
+		this.fertiliteSol = fertiliteSol;
 	}
 
 }

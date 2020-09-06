@@ -56,9 +56,15 @@ public class ChampDAO {
 				int id = curseurChamp.getInt("id");
 				String nom = curseurChamp.getString("nom");
 				String distanceFerme = curseurChamp.getString("distanceferme");
+				int taille = curseurChamp.getInt("taille");
+				String fertiliteSol = curseurChamp.getString("fertilitesol");
+				
 				champ.setId(id);
 				champ.setNom(nom);
 				champ.setDistanceFerme(distanceFerme);
+				champ.setTaille(taille);
+				champ.setFertiliteSol(fertiliteSol);
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
