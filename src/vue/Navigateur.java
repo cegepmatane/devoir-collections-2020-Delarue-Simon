@@ -20,6 +20,8 @@ public abstract class Navigateur extends Application{ // Application de javafx e
 		VueChamp.getInstance().activerControles();
 		VueAjouterSemence.getInstance().activerControles();
 		VueAjouterSemence.getInstance().controleur = VueChamp.getInstance().controleur;
+		VueEditerSemence.getInstance().activerControles();
+		VueEditerSemence.getInstance().controleur = VueChamp.getInstance().controleur;
 	}
 	
 	public void afficherVue(Vue vue)

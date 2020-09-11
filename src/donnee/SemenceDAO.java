@@ -11,6 +11,33 @@ import modele.Semence;
 
 public class SemenceDAO {
 	
+	public Semence detaillerSemence(int id)
+	{
+		Connection connection = BaseDeDonnees.getInstance().getConnection();
+		Semence semence = new Semence();
+				
+		PreparedStatement requeteSemences;
+		try {
+			requeteSemences = connection.prepareStatement("SELECT * from semences WHERE id = ?");
+			requeteSemences.setInt(1, id);
+			ResultSet curseur = requeteSemences.executeQuery();
+			curseur.next();
+			String typeSemence = curseur.getString("typesemence");
+			String datePlantation = curseur.getString("dateplantation");
+			semence.setTypeSemence(typeSemence);
+			semence.setDatePlantation(datePlantation);
+			semence.setId(id);
+			
+		} 
+		catch (SQLException e) {
+				e.printStackTrace();
+		}
+		
+		return semence;
+	}
+	
+	
+	
 	public List<Semence> listerSemences(int numero)
 	{
 		Connection connection = BaseDeDonnees.getInstance().getConnection();
@@ -51,6 +78,22 @@ public class SemenceDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+	}
+
+	public void editerSemence(Semence semence) 
+	{
+		Connection connection = BaseDeDonnees.getInstance().getConnection();
+		try {
+			PreparedStatement requeteModifierSemence = connection.prepareStatement("UPDATE semences SET typesemence = ?, dateplantation = ? WHERE id = ?");
+			requeteModifierSemence.setString(1, semence.getTypeSemence());
+			requeteModifierSemence.setString(2, semence.getDatePlantation());
+			requeteModifierSemence.setInt(3,semence.getId());
+			requeteModifierSemence.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

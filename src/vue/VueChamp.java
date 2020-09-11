@@ -75,12 +75,26 @@ public class VueChamp extends Vue {
 		ArrayList<String> listeNomSemences= new ArrayList<String>(); */
 		VBox vueSemences = (VBox)lookup("#listesemences");
 		vueSemences.getChildren().clear();
+		Button action;
+		
 		for (Semence semence: listeSemences) {
+			
+			action = new Button("Éditer");
+			action.setId(semence.getId()+"");
+			action.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent e) {
+				Button source = (Button)e.getSource();
+				Logger.logMsg(Logger.INFO, "Clic sur la semence avec l'id : " + source.getId());
+				controleur.notifierClicEditerSemence(Integer.parseInt(source.getId()));
+				}});
+		
 			Logger.logMsg(Logger.INFO, "Semence : "+ semence.getTypeSemence());
 			HBox vueSemence = new HBox();
 			vueSemence.getStyleClass().add("semence");
 			vueSemence.getChildren().add(new Label(semence.getTypeSemence()));
-			vueSemence.getChildren().add(new Button("Modifier"));
+			vueSemence.getChildren().add(action);
 			vueSemences.getChildren().add(vueSemence);
 			//listeNomSemences.add(semence.getTypeSemence());
 		}

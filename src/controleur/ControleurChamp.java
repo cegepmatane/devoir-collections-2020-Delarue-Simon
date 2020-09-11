@@ -11,6 +11,7 @@ import modele.Semence;
 import vue.Navigateur;
 import vue.VueAjouterSemence;
 import vue.VueChamp;
+import vue.VueEditerSemence;
 
 public class ControleurChamp extends Controleur{
 
@@ -39,6 +40,7 @@ public class ControleurChamp extends Controleur{
 		
 	}
 	
+	
 	public void notifierClicEnregisterAjoutSemence() {
 		
 		Semence semence = VueAjouterSemence.getInstance().lireSemence();
@@ -48,6 +50,32 @@ public class ControleurChamp extends Controleur{
 		this.semences.add(semence);
 		VueChamp.getInstance().afficherSemences(semences); // TODO : optimiser
 		Navigateur.getInstance().afficherVue(VueChamp.getInstance());
+	}
+	
+	protected Semence semence;
+	
+	public void notifierClicEditerSemence(int id) 
+	{
+		SemenceDAO semenceDAO = new SemenceDAO();
+		this.semence = semenceDAO.detaillerSemence(id);
+		Logger.logMsg(Logger.INFO, "ControleurChamp.notifierClicEditionSemence("+id+")");
+		VueEditerSemence.getInstance().afficherSemence(semence);
+		Navigateur.getInstance().afficherVue(VueEditerSemence.getInstance());
+		
+	}
+	
+	public void notifierClicEnregisterEditerSemence() 
+	{
+		Semence semence = VueEditerSemence.getInstance().lireSemence();
+		semence.setChampId(champ.getId());
+		semence.setId(this.semence.getId());
+		SemenceDAO semenceDAO = new SemenceDAO();
+		semenceDAO.editerSemence(semence);
+		this.semences = semenceDAO.listerSemences(champ.getId()); // TODO: à opti
+		VueChamp.getInstance().afficherSemences(semences);
+		Navigateur.getInstance().afficherVue(VueChamp.getInstance());
+		
+		
 	}
 	
 	
