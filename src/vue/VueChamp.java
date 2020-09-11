@@ -22,10 +22,17 @@ import modele.Semence;
 
 public class VueChamp extends Vue {
 
-	protected ControleurChamp controleur;
-	protected static VueChamp instance = null; 
-	public static VueChamp getInstance() {if(null==instance)instance = new VueChamp();return VueChamp.instance;}; 
 	
+	protected static VueChamp instance = null; 
+	public static VueChamp getInstance() 
+	{
+		if(null==instance)instance = new VueChamp();
+		return VueChamp.instance;
+	}
+	protected ControleurChamp controleur = null;
+	public ControleurChamp getControleur() {
+		return this.controleur;
+	}
 	private VueChamp() 
 	{
 		super("champ.fxml"); 

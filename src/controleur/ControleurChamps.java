@@ -18,10 +18,7 @@ public class ControleurChamps extends Controleur{
 	public void actionOuvrirChamp(int numero)
 	{
 		ChampDAO champDAO = new ChampDAO();
-		SemenceDAO semenceDAO = new SemenceDAO();
-		VueChamp.getInstance().afficherChamp(champDAO.detaillerChamp(numero));
-		VueChamp.getInstance().afficherSemences(semenceDAO.listerSemences(numero));
-		Navigateur.getInstance().afficherVue(VueChamp.getInstance());
+		VueChamp.getInstance().getControleur().actionOuvrirChamp(numero);
 	}
 
 }

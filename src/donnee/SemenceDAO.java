@@ -40,4 +40,18 @@ public class SemenceDAO {
 		return listeSemences;
 	}
 	
+	public void ajouterSemence(Semence semence)
+	{
+		Connection connection = BaseDeDonnees.getInstance().getConnection();
+		try {
+			PreparedStatement requeteAjouterSemence = connection.prepareStatement("Insert into semences(typesemence,dateplantation) VALUES(?,?)");
+			requeteAjouterSemence.setString(1, semence.getTypeSemence());
+			requeteAjouterSemence.setString(2, semence.getDatePlantation());
+			requeteAjouterSemence.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
