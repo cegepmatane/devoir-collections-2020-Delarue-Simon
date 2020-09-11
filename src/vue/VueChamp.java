@@ -9,6 +9,8 @@ import controleur.ControleurChamp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -34,6 +36,14 @@ public class VueChamp extends Vue {
 	public void activerControles()
 	{
 		super.activerControles();
+		Button actionAjouterSemence = (Button)lookup("#action-ajouter-semence");
+		
+		actionAjouterSemence.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+			controleur.notifierClicAjouterSemence();
+			}});
 	}
 	
 	public void afficherChamp(modele.Champ champ)
