@@ -39,13 +39,14 @@ public class ControleurChamp extends Controleur{
 		
 	}
 	
-	public void notifierClicEnregisterSemence() {
+	public void notifierClicEnregisterAjoutSemence() {
 		
 		Semence semence = VueAjouterSemence.getInstance().lireSemence();
+		semence.setChampId(champ.getId());
 		SemenceDAO semenceDAO = new SemenceDAO();
 		semenceDAO.ajouterSemence(semence);
-		//TODO : gérer l'id et la foreign key
-		//VueChamp.getInstance().afficherChamp(semenceDAO.listerSemences(INSERER ID CHAMP));
+		this.semences.add(semence);
+		VueChamp.getInstance().afficherSemences(semences); // TODO : optimiser
 		Navigateur.getInstance().afficherVue(VueChamp.getInstance());
 	}
 	

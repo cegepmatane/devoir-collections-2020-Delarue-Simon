@@ -28,5 +28,12 @@ public class Semence {
 	public void setDatePlantation(String datePlantation) {
 		this.datePlantation = datePlantation;
 	}
+	
+	public int getChampId() {
+		return champ_id;
+	}
+	public void setChampId(int champId) {
+		this.champ_id = champId;
+	}
 
 }
